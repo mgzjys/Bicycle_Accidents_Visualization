@@ -17,13 +17,13 @@ https://web1.capetown.gov.za/web1/opendataportal/DatasetDetail?DatasetName=Build
 
 <body>
   <div id="main"></div>
-  <script src='file:///C:/Users/liyao/Documents/Atom/Work/Ultra_test/js/echarts.js'></script>
-  <script src='file:///C:/Users/liyao/Documents/Atom/Work/Ultra_test/js/echarts-gl.js'></script>
-  <script src='file:///C:/Users/liyao/Documents/Atom/Work/Ultra_test/js/mapbox-gl.js'></script>
-  <link href='file:///C:/Users/liyao/Documents/Atom/Work/Ultra_test/js/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://mgzjys.github.io/Bicycle_Accidents_Visualization/js/echarts.js'></script>
+  <script src='https://mgzjys.github.io/Bicycle_Accidents_Visualization/js/echarts-gl.js'></script>
+  <script src='https://mgzjys.github.io/Bicycle_Accidents_Visualization/js/mapbox-gl.js'></script>
+  <link href='https://mgzjys.github.io/Bicycle_Accidents_Visualization/js/mapbox-gl.css' rel='stylesheet' />
   <script src="https://unpkg.com/shapefile@0.6"></script>
-  <script src='file:///C:/Users/liyao/Documents/Atom/Work/Ultra_test/js/jquery.min.js'></script>
-  <script src='file:///C:/Users/liyao/Documents/Atom/Work/Ultra_test/js/dat.gui.js'></script>
+  <script src='https://mgzjys.github.io/Bicycle_Accidents_Visualization/js/jquery.min.js'></script>
+  <script src='https://mgzjys.github.io/Bicycle_Accidents_Visualization/js/dat.gui.js'></script>
   <script>
     mapboxgl.accessToken = window.location.search.slice(1);
     mapboxgl.accessToken = 'pk.eyJ1IjoibWd6anlzIiwiYSI6ImNqOHg4dTYyZzF3c2wzMW1iNXc2cXNteTAifQ.kaPEfBr4GPlJfIeLdAU9Vg';
@@ -64,7 +64,7 @@ https://web1.capetown.gov.za/web1/opendataportal/DatasetDetail?DatasetName=Build
     };
     var regions = [];
     var readShp = new Promise(function(resolve, reject) {
-      shapefile.open('http://localhost/data/NYC/Building_Footprints/Test_NYC_buildings.shp', 'http://localhost/data/NYC/Building_Footprints/Test_NYC_buildings.dbf')
+      shapefile.open('https://mgzjys.github.io/Bicycle_Accidents_Visualization/data/Test_NYC_buildings.shp', 'https://mgzjys.github.io/Bicycle_Accidents_Visualization/data/Test_NYC_buildings.dbf')
         .then(source => source.read()
           .then(function append(result) {
             if (result.done) {
@@ -83,7 +83,7 @@ https://web1.capetown.gov.za/web1/opendataportal/DatasetDetail?DatasetName=Build
           })
         );
     });
-    Promise.all([$.getJSON('http://localhost/data/NYC/Street/Bike_Routes.json'), readShp])
+    Promise.all([$.getJSON('https://mgzjys.github.io/Bicycle_Accidents_Visualization/data/Bike_Routes.json'), readShp])
       .then(function([data, lastFeature]) {
         var feature_collections = data.features;
         var lines = feature_collections.map(function(track) {
@@ -138,7 +138,7 @@ https://web1.capetown.gov.za/web1/opendataportal/DatasetDetail?DatasetName=Build
                 intensity: 0.
               },
               ambientCubemap: {
-                texture: 'http://localhost/data/pisa.hdr',
+                texture: 'https://mgzjys.github.io/Bicycle_Accidents_Visualization/data/pisa.hdr',
                 exposure: 1,
                 diffuseIntensity: 0.5,
                 specularIntensity: 2
